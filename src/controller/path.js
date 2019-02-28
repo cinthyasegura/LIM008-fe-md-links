@@ -1,26 +1,28 @@
+const path = require('path');
+// export const walkDirectory = () => {
+// /** 
+// * @param {path} aplicar recursividad
+// * @returns {array con los archivos}
+// */
+// };
 
-export const walkDirectory = () => {
-/** 
-* @param {path} aplicar recursividad
-* @returns {array con los archivos}
-*/
+
+export const convertRelativePathToAbsolut = relativePath => 
+    path.resolve(relativePath)
+
+export const filterMdFiles = contentArr => {
+    return contentArr.filter(file => path.extname(file) === '.md')
 };
 
-export const filterMdArchives = arrayWithPaths => {
-    arrayWithPaths.filter(archivePath => archivePath.md)
-};
 
-export const convertRelativePathToAbsolut = arrayWithPaths => {
-    // convertir el array en string - toString();
-    if (paths === relativePath){
-        'convert to absolutPath';
-    };
-};
-export const searchLinks = Absolutpath => {
-    return [{
-        path: 'path',
-        href: 'href',
-        text: 'text'
-    }];
-};
+export const joinPath = file => 
+    path.join(__dirname, file)
+
+// export const searchLinks = Absolutpath => {
+//     return [{
+//         path: path.resolve(relativePath),
+//         href: 'href',
+//         text: text.slice(0, 50)
+//     }];
+// };
 
