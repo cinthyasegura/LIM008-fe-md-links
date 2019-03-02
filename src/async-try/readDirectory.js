@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');  
-import {filterMdFiles, joinPath} from './path.js';
+import {filterMdFiles, joinPath} from '../controller/path.js';
 
 
 export const readDirectory = path => {
