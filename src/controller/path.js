@@ -8,15 +8,15 @@ const path = require('path');
 
 
 export const convertRelativePathToAbsolut = relativePath => 
-    path.resolve(relativePath)
+  path.resolve(relativePath);
 
 export const filterMdFiles = contentArr => {
-    return contentArr.filter(file => path.extname(file) === '.md')
+  return contentArr.filter(file => path.extname(file) === '.md');
 };
 
 
 export const joinPath = file => 
-    path.join(__dirname, file)
+  path.join(__dirname, file);
 
 // export const searchLinks = Absolutpath => {
 //     return [{
