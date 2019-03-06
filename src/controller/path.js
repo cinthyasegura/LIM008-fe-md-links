@@ -1,10 +1,4 @@
 const path = require('path');
-// export const walkDirectory = () => {
-// /** 
-// * @param {path} aplicar recursividad
-// * @returns {array con los archivos}
-// */
-// };
 
 
 export const convertRelativePathToAbsolut = relativePath => 

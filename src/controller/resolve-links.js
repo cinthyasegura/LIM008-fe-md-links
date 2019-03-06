@@ -9,23 +9,21 @@ export const lookUpForLinks = (routes) => {
   const mdFiles = filterMdFiles(filesArr);
   mdFiles.forEach(paths => {
     const readMdFiles = fs.readFileSync(paths, 'utf-8');
-    // const match = regex.exec(readMdFiles);
-    const matchLinks = readMdFiles.match(/(^|[^!])\[(.*)\]\((.*)\)/gm);
-    if (matchLinks !== null) {
-      matchLinks.forEach(links => {
-        const bracket = links.indexOf(']');
-        return linksOfFile.push({
-          href: links.slice(bracket + 2, links.length - 1), 
-          text: links.slice(2, bracket),
-          file: paths
-        });
-      });  
-    } else {
-      console.log(`no se encontraron links en el archivo ${paths}`);
+    const regex = /(^|[^!])\[(.*)\]\((.*)\)/gm;
+    let matchLinks = regex.exec(readMdFiles);
+    while (matchLinks !== null) {
+      linksOfFile.push({
+        href: matchLinks[3], 
+        text: matchLinks[2].slice(0, 50),
+        file: paths
+      }); 
+      matchLinks = regex.exec(readMdFiles);
     }
+    // console.log(`no se encontraron links en el archivo ${paths}`);
   });
   return linksOfFile;
 };
+// console.log(lookUpForLinks('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test\\testing'));
 
 export const validateLink = route => {
   const linksObj = lookUpForLinks(route);
@@ -48,5 +46,5 @@ export const validateLink = route => {
   return Promise.all(newArr);
 };
 // validateLink('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
-//   .then(result => result)
+//   .then(result => console.log(result))
 //   .catch(err => err);

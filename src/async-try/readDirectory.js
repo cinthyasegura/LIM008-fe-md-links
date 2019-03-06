@@ -19,13 +19,11 @@ export const walkInDirectory = (route) => {
   readDirectory(route)
     .then(content => {
       content.forEach(file => {
-        // console.log(file)
         const routeAbsFile = path.join(route, file);
-        // console.log(routeAbsFile)
         const stat = fs.statSync(routeAbsFile);
         if (stat.isDirectory()) {
           readDirectory(routeAbsFile)
-            .then(archivos => archivos.forEach(a => walkInDirectory(path.join(routeAbsFile, a))))
+            .then(resp => resp.forEach(doc => walkInDirectory(path.join(routeAbsFile, doc))))
             .catch(err => console.log(err));
         } else if (stat.isFile()) {
           arrOfFiles.push(routeAbsFile);
@@ -36,19 +34,7 @@ export const walkInDirectory = (route) => {
   // return arrOfFiles;
 };
 
-
-// const aa = readDirectory(arr);
-// console.log(aa);
-// .forEach(files, index => {
-//     const stat = fs.stat();
-//     if(stat.isDirectory()) {
-//         arrOfFiles = arrOfFiles.concat(walkInDirectory('nuevo directory')) 
-//     }
-//     else if (stat.isFile()) {
-//         arrOfFiles.push(files);
-//     } 
-// });
-walkInDirectory('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test');
+// walkInDirectory('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test');
 
 // readDirectory('./test/testing')
 // // .then(file => console.log(file))     
