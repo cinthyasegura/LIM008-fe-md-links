@@ -1,13 +1,39 @@
 import { validateLink } from './resolve-links.js';
 
-
-export const linkStats = (route, callback) => {
-  const linkStatus = validateLink(route);
-  linkStatus.then(response => {
-    const responseFilter = response.filter(statusMessage => statusMessage.message === 'OK');
-    callback(responseFilter.length);
-  }).catch(err => callback(err));
+const doStats = (resolver, route) => (
+  new Promise((resolve, reject) => {
+    const linkStatus = validateLink(route);
+    linkStatus.then(response => {
+      const result = resolver(response);
+      resolve(result);
+    }).catch(err => reject(err)); 
+  })
+);
+ 
+export const totalLinksStats = (route) => {
+  const resolver = response => response.length;
+  return doStats(resolver, route);
 };
-const consoleando = (total) => console.log(total);
 
-linkStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder', consoleando);
+// totalLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
+//   .then((resp) => console.log(`Total: ${resp}`))
+//   .catch(err => console.log(err));
+
+
+export const uniqueLinksStats = route => {
+  const resolver = response => response.filter((links, index, arr) => arr.indexOf(links) === index).length;
+  return doStats(resolver, route);
+};
+
+// uniqueLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
+//   .then((resp) => console.log(`Unique: ${resp}`))
+//   .catch(err => console.log(err));
+
+export const brokenLinksStats = route => {
+  const resolver = response => response.filter(statusText => statusText.message === 'Fail').length;
+  return doStats(resolver, route);
+};
+
+// brokenLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
+//   .then((resp) => console.log(`Broken: ${resp}`))
+//   .catch(err => console.log(err));

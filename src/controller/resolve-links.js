@@ -25,6 +25,7 @@ export const lookUpForLinks = (routes) => {
 };
 // console.log(lookUpForLinks('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test\\testing'));
 
+// --validate
 export const validateLink = route => {
   const linksObj = lookUpForLinks(route);
   const newArr = linksObj.map(links => new Promise((resolve, reject) => {
@@ -40,8 +41,8 @@ export const validateLink = route => {
         resolve(links);
       }  
     }).catch(err => {
-      reject(err);
-    });  
+      resolve(err);
+    });
   }));
   return Promise.all(newArr);
 };

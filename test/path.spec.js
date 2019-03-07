@@ -1,22 +1,12 @@
-import { convertRelativePathToAbsolut, filterMdFiles, joinPath} from '../src/controller/path.js';
+import { filterMdFiles } from '../src/controller/path.js';
 import { walkInDirectorySync } from '../src/controller/readdirectory-sync.js';
 import { lookUpForLinks, validateLink } from '../src/controller/resolve-links.js';
+import { totalLinksStats, uniqueLinksStats, brokenLinksStats } from '../src/controller/stats.js'; 
 
-describe('convertRelativePathToAbsolut', () => {
-  it('deberia de retornar un string de la ruta absoluta', () => {
-    expect(convertRelativePathToAbsolut('src')).toBe('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src');
-  });
-});
 
 describe('filterMdFiles', () => {
   it('deberia filtrar y mostrar los archivos con extension md', () => {
     expect(filterMdFiles(['file.txt', 'file1.md'])).toEqual(['file1.md']);
-  });
-});
-
-describe('joinPath', () => {
-  it('deberia unir la ruta absoluta con el nombre archivo', () => {
-    expect(joinPath('..\\..\\test\\testing\\file-1.txt')).toEqual('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test\\testing\\file-1.txt');
   });
 });
 
@@ -74,3 +64,42 @@ describe('validateLink', () => {
   });
 });
 
+// describe('linkStats', () => {
+//   it('deberia retornar', (done) => {
+//     linkStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder', consoleando)
+//       .then(() => {
+//         expect(linkStats).toEqual(consoleando);
+//         done();
+//       }).catch(err => done());
+//   });
+// });
+
+describe('totalLinksStats', () => {
+  it('deberia retornarme el total de links encontrados', (done) => {
+    totalLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
+      .then(() => {
+        expect(totalLinksStats).toEqual('Total: 4');
+        done();
+      }).catch(err => done());
+  });
+});
+
+describe('uniqueLinksStats', () => {
+  it('deberia retornarme el total de links encontrados', (done) => {
+    uniqueLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
+      .then(() => {
+        expect(uniqueLinksStats).toEqual('Unique: 4');
+        done();
+      }).catch(err => done());
+  });
+});
+
+describe('brokenLinksStats', () => {
+  it('deberia retornarme el total de links encontrados', (done) => {
+    brokenLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
+      .then(() => {
+        expect(brokenLinksStats).toEqual('Broken: 1');
+        done();
+      }).catch(err => done());
+  });
+});
