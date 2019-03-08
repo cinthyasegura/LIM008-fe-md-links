@@ -4,4 +4,3 @@ linea de comando [Linea de comando CLI gbfnjbngb nbibibntbitbni bntbtngtghtguh g
 
 HOLAAAAA [Hola](https://github.com/octokit/rest.js/issu)
 
-vffbbbgb [fvfrgrg](gbfgbgfbfg)

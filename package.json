@@ -15,7 +15,7 @@
     "test": "jest --coverage"
   },
   "bin": {
-    "md-links": "lib/controller/cli.js"
+    "md-links": "lib/cli.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
