@@ -10,30 +10,32 @@ const doStats = (resolver, route) => (
   })
 );
  
+
 export const totalLinksStats = (route) => {
-  const resolver = response => response.length;
+  const resolver = response => `Total: ${response.length}`;
   return doStats(resolver, route);
 };
 
 // totalLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
-//   .then((resp) => console.log(`Total: ${resp}`))
+//   .then((resp) => console.log(resp))
 //   .catch(err => console.log(err));
 
 
 export const uniqueLinksStats = route => {
-  const resolver = response => response.filter((links, index, arr) => arr.indexOf(links) === index).length;
+  const resolver = response => `Unique: ${response.filter((links, index, arr) => arr.indexOf(links) === index).length}`;
   return doStats(resolver, route);
 };
 
 // uniqueLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
-//   .then((resp) => console.log(`Unique: ${resp}`))
+//   .then((resp) => console.log(resp))
 //   .catch(err => console.log(err));
 
 export const brokenLinksStats = route => {
-  const resolver = response => response.filter(statusText => statusText.message === 'Fail').length;
+  const resolver = response => `Broken: ${response.filter(statusText => statusText.message === 'Fail').length}`;
   return doStats(resolver, route);
 };
 
 // brokenLinksStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\src\\async-try\\mdfolder')
-//   .then((resp) => console.log(`Broken: ${resp}`))
+//   .then((resp) => console.log(resp))
 //   .catch(err => console.log(err));
+

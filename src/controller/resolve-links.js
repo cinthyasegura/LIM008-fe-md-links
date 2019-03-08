@@ -41,7 +41,9 @@ export const validateLink = route => {
         resolve(links);
       }  
     }).catch(err => {
-      resolve(err);
+      links.status = 'No contiene una URL válida';
+      links.message = 'Fail',
+      resolve(links);
     });
   }));
   return Promise.all(newArr);
