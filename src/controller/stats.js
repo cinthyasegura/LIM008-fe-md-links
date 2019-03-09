@@ -16,7 +16,7 @@ export const totalLinksStats = (route) => {
 };
 
 export const uniqueLinksStats = route => {
-  const resolver = response => `Unique: ${response.filter((links, index, arr) => arr.indexOf(links) === index).length}`;
+  const resolver = response => `Unique: ${new Set(response.map(uniqueLinks => uniqueLinks.href)).size}`;
   return doStats(resolver, route);
 };
 

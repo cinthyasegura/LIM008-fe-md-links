@@ -24,4 +24,8 @@ export const validateLink = route => {
   }));
   return Promise.all(newArr);
 };
+
+// validateLink('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test\\testing\\folder-2\\file-4.md')
+// .then(resp => console.log(resp))
+
   
