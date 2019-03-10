@@ -1,5 +1,5 @@
 {
-  "name": "@markdown-links/md-links",
+  "name": "@cinthyasegura/md-links",
   "version": "1.0.0",
   "description": "Validate and stats of Markdown links @ Laboratoria",
   "main": "lib/index.js",
@@ -40,6 +40,7 @@
     "regenerator-runtime": "^0.13.1"
   },
   "dependencies": {
-    "node-fetch": "^2.3.0"
+    "node-fetch": "^2.3.0",
+    "social-network": "git+https://github.com/cinthyasegura/LIM008-fe-md-links.git"
   }
 }

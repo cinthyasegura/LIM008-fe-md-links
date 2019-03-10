@@ -4,7 +4,7 @@ const fs = require('fs');
 
 export const walkInDirectorySync = route => {
   let arrOfFiles = [];
-  if (fs.statSync(route).isFile() === true) {
+  if (fs.statSync(route).isFile()) {
     arrOfFiles.push(route);
   } else {
     const contentArr = fs.readdirSync(route);
