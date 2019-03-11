@@ -1,7 +1,7 @@
 import { totalLinksStats, uniqueLinksStats, brokenLinksStats } from './controller/stats.js';
 import { validateLink } from './controller/validate.js';
 
-export const mdLinks = (route, options) => {
+export const validateAndStats = (route, options) => {
   let promises = 0;
   if (options.stats && !options.validate) {
     promises = Promise.all([
@@ -22,7 +22,7 @@ export const mdLinks = (route, options) => {
   } else {
     validateLink(route)
       .then((resp) => {
-        resp.forEach(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Text: ${values.text}`));
+        resp.forEach(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Text: ${values.text}\n`));
       }).catch(err => err);
   }
   return promises;
