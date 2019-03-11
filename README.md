@@ -10,7 +10,7 @@ algunas estadísticas.
 
 Para instalar esta librería debemos ejecutar el siguiente comando
 
-`npm i @cinthyasegura/md-links`
+`npm i cinthyasegura/LIM008-fe-md-links`
 
 ## Uso en la línea de comandos
 El ejecutable podra ejecutarse de la siguiente manera a través de la terminal:
@@ -60,29 +60,19 @@ Te mostrara las posibles opciones que podras utlizar
 
 El módulo puede importarse en otros scripts de Node.js a travéz de:
 
-`require('@cinthyasegura/md-links')`
+`require('md-links')`
 
 #### `validateAndStats(path, options)`
 
 ##### Argumentos
 
 - `path`: Ruta absoluta o relativa al archivo o directorio
-  node - _current working directory_).
 - `options`: Un objeto con las siguientes propiedades:
   * `validate`: Booleano que determina si se desea validar los links encontrados.
-  * `stats`: Booleano que determina si se desea calcular estadisticas los links encontrados.
+  * `stats`: Booleano que determina si se desea calcular estadisticas de los links encontrados.
 
 
 
+## Implemetación de la librería
 
-
-### `README.md`
-
-- [ ] Colocar el *pseudo codigo* o *diagrama de flujo* con el algoritmo que
-  soluciona el problema.
-- [ ] Un board con el backlog para la implementación de la librería.
-- [ ] Documentación técnica de la librería.
-
-
-
-
+      
