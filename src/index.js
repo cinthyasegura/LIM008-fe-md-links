@@ -28,4 +28,3 @@ export const validateAndStats = (route, options) => {
   return promises;
 };
 
-module.exports = mdLinks;

@@ -15,7 +15,6 @@ export const walkInDirectorySync = route => {
   };
   return arrOfFiles;
 };
-// console.log(walkInDirectorySync('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test\\testing'));
 
 export const filterMdFiles = contentArr => {
   return contentArr.filter(file => path.extname(file) === '.md');
