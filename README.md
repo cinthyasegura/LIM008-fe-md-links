@@ -1,6 +1,3 @@
-[![npm version](https://badge.fury.io/js/%40cinthyasegura%2Fmd-links.svg)](https://badge.fury.io/js/%40cinthyasegura%2Fmd-links.svg)
-
-
 ![npm](https://img.shields.io/npm/v/@cinthyasegura/md-links.svg?style=popout)
 
 # Información
@@ -13,9 +10,9 @@ algunas estadísticas.
 
 Para instalar esta librería debemos ejecutar el siguiente comando
 
-         `npm i @cinthyasegura/md-links`
+`npm i @cinthyasegura/md-links`
 
-# Uso en la línea de comandos
+## Uso en la línea de comandos
 El ejecutable podra ejecutarse de la siguiente manera a través de la terminal:
 
 `md-links <path-to-file> [options]`
@@ -33,7 +30,7 @@ $ md-links ./some/example.md --v --s
 
 Si pasamos la opción --validate o --v, el módulo debe hacer una petición HTTP para averiguar si el link funciona o no. Si el link resulta en una redirección a una URL que responde ok, entonces consideraremos el link como ok.
 
-![validate](images\validate.PNG)
+![validate](.\images\validate.PNG)
 
 El _output_ en este caso incluye la palabra `ok` o `fail` después de
 la URL, así como el status de la respuesta recibida a la petición HTTP a dicha
@@ -43,26 +40,20 @@ URL.
 
 Si pasamos la opción --stats o --s el output (salida) será un texto con estadísticas básicas sobre los links.
 
-![stats](images\stats.PNG)
+![stats](.\images\stats.PNG)
 
 
 `--stats --validate` 
 
 También podemos combinar --stats y --validate para obtener estadísticas que necesiten de los resultados de la validación.
 
-![validate and stats](images\validate-stats.PNG)
+![validate and stats](.\images\validate-stats.PNG)
 
 `--help`
 
 Te mostrara las posibles opciones que podras utlizar
 
-![ayuda](images\help.PNG)
-
-
-
-
-
-
+![ayuda](.\images\help.PNG)
 
 
 
