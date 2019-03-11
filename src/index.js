@@ -21,7 +21,7 @@ import { validateLink } from './controller/validate.js';
 
 
 export const mdLinks = (route, options) => {
-  if (options.validate) {
+  if (options.validate || !options.validate) {
     return validateLink(route).then(resp => resp).catch(err => err);
   } 
 };
