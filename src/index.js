@@ -1,13 +1,6 @@
 import { totalLinksStats, uniqueLinksStats, brokenLinksStats } from './controller/stats.js';
 import { validateLink } from './controller/validate.js';
 
-
-// const options = {
-//   validate: true,
-//   stats: true
-// }; 
-
-
 export const validateAndStats = (route, options) => {
   let promises = 0;
   if (options.stats && !options.validate) {
@@ -29,12 +22,10 @@ export const validateAndStats = (route, options) => {
   } else {
     validateLink(route)
       .then((resp) => {
-        resp.forEach(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Text: ${values.text}`));
+        resp.forEach(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Text: ${values.text}\n`));
       }).catch(err => err);
   }
   return promises;
 };
-  
-// validateAndStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test\\testing\\folder-2\\file-4.md', options);
 
 
