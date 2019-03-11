@@ -1,4 +1,5 @@
 import { validateLink } from './controller/validate.js';
+import { lookUpForLinks } from './controller/links.js';
 
 // export const validateAndStats = (route, options) => {
 //   if (options.stats && !options.validate) {
@@ -21,7 +22,9 @@ import { validateLink } from './controller/validate.js';
 
 
 export const mdLinks = (route, options) => {
-  if (options.validate || !options.validate) {
+  if (options.validate) {
     return validateLink(route).then(resp => resp).catch(err => err);
-  } 
+  } else if (!options.validate) {
+    return lookUpForLinks(route);
+  }
 };

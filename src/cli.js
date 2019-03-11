@@ -25,9 +25,8 @@ if (args.length === 1) {
   if (args[0] === '--help') {
     helpMe();
   } else {
-    mdLinks(path, options)
-      .then(resp => resp.forEach(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Text: ${values.text}\n`)))
-      .catch(err => console.log(err));
+    const linkss = mdLinks(path, options)
+    linkss.forEach(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Text: ${values.text}\n`))
   }    
 };
 
