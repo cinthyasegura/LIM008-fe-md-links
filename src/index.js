@@ -1,14 +1,7 @@
 import { totalLinksStats, uniqueLinksStats, brokenLinksStats } from './controller/stats.js';
 import { validateLink } from './controller/validate.js';
 
-
-// const options = {
-//   validate: true,
-//   stats: true
-// }; 
-
-
-export const validateAndStats = (route, options) => {
+export const mdLinks = (route, options) => {
   let promises = 0;
   if (options.stats && !options.validate) {
     promises = Promise.all([
@@ -34,7 +27,5 @@ export const validateAndStats = (route, options) => {
   }
   return promises;
 };
-  
-// validateAndStats('C:\\Users\\CINTHYA\\Documents\\md-links\\LIM008-fe-md-links\\test\\testing\\folder-2\\file-4.md', options);
 
-
+module.exports = mdLinks;
