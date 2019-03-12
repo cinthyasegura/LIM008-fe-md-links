@@ -27,5 +27,7 @@ export const mdLinks = (route, options) => {
     return validateLink(route).then(resp => resp).catch(err => err);
   } else if (!options.validate) {
     return new Promise(resolve => resolve(lookUpForLinks(route)));
+  } else {
+    console.log('Esa opcion no existe');
   }
 };
