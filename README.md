@@ -72,7 +72,7 @@ El módulo puede importarse en otros scripts de Node.js a travéz de:
 ## Implemetación de la librería
 
 Se crea el flujograma para tener una guía de la implementación del proyecto
-![flujograma](images/flujograma.PNG)
+![flujograma](images/flujograma.png)
 
 Adicionalmente se crea un cuadro con las funciones a crear, input, output y los posibles métodos a implementar
 ![cuadro](images/cuadro.jpg)
