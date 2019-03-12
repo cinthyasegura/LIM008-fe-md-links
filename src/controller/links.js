@@ -17,9 +17,8 @@ export const lookUpForLinks = (routes) => {
         text: matchLinks[2].slice(0, 50),
         file: path.resolve(paths)
       }); 
-      matchLinks = regex.exec(readMdFiles);
+      matchLinks = regex.exec(readMdFiles); 
     }
-    // console.log(`no se encontraron links en el archivo ${paths}`);
   });
   return linksOfFile;
 };
