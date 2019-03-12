@@ -8,7 +8,7 @@ algunas estadísticas.
 
 Para instalar esta librería debemos ejecutar el siguiente comando
 
-`npm i cinthyasegura/LIM008-fe-md-links`
+`npm i cinthyasegura/md-links`
 
 ## Uso en la línea de comandos
 El ejecutable podra ejecutarse de la siguiente manera a través de la terminal:
