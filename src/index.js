@@ -1,5 +1,6 @@
 import { validateLink } from './controller/validate.js';
 import { lookUpForLinks } from './controller/links.js';
+import { prependListener } from 'cluster';
 
 // export const validateAndStats = (route, options) => {
 //   if (options.stats && !options.validate) {
@@ -25,6 +26,6 @@ export const mdLinks = (route, options) => {
   if (options.validate) {
     return validateLink(route).then(resp => resp).catch(err => err);
   } else if (!options.validate) {
-    return lookUpForLinks(route);
+    return new Promise(resolve => resolve(lookUpForLinks(route)));
   }
 };
