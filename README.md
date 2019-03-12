@@ -1,5 +1,3 @@
-![npm](https://img.shields.io/npm/v/@cinthyasegura/md-links.svg?style=popout)
-
 # Información
 
 `md-links` herramienta que lee y analiza archivos
@@ -62,18 +60,28 @@ El módulo puede importarse en otros scripts de Node.js a travéz de:
 
 `require('md-links')`
 
-#### `validateAndStats(path, options)`
+#### `mdLinks(path, options)`
 
 ##### Argumentos
 
 - `path`: Ruta absoluta o relativa al archivo o directorio
 - `options`: Un objeto con las siguientes propiedades:
   * `validate`: Booleano que determina si se desea validar los links encontrados.
-  * `stats`: Booleano que determina si se desea calcular estadisticas de los links encontrados.
-
 
 
 ## Implemetación de la librería
 
+Se crea el flujograma para tener una guía de la implementación del proyecto
+![flujograma](images/flujograma.PNG)
 
-      
+Adicionalmente se crea un cuadro con las funciones a crear, input, output y los posibles métodos a implementar
+![cuadro](images/cuadro.jpg)
+
+Se hizo uso de las herramientas de GitHub para la organización y planificación del proyecto como los milestone, issues, project.
+
+Project:
+![project](images/project.PNG)
+
+Milestone:
+![milestone](images/milestone.PNG)
+

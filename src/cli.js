@@ -5,8 +5,7 @@ import { totalLinksStats, uniqueLinksStats, brokenLinksStats } from './controlle
 const args = process.argv.slice(2);
 
 const options = {
-  validate: false,
-  stats: false
+  validate: false
 };
 
 let path = args[0];
@@ -39,7 +38,6 @@ if (args.length === 2) {
       .then(resp => resp.forEach(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Status: ${values.status}\n StatusText: ${values.message}\n Text: ${values.text}\n`)))
       .catch(err => err);
   } else if (args[1] === '--stats' || args[1] === '--s') {
-    options.stats = true;
     Promise.all([
       totalLinksStats(path),
       uniqueLinksStats(path)
@@ -49,16 +47,12 @@ if (args.length === 2) {
 
 if (args.length === 3) {
   if ((args[1] === '--validate' || args[1] === '--v') && (args[2] === '--stats' || args[2] === '--s')) {
-    options.validate = true;
-    options.stats = true;
     Promise.all([
       totalLinksStats(path),
       uniqueLinksStats(path),
       brokenLinksStats(path)
     ]).then(resp => resp.forEach(values => console.log(values))).catch(err => console.log(err));
   } else if ((args[1] === '--stats' || args[1] === '--s') && (args[2] === '--validate' || args[2] === '--v')) {
-    options.validate = true;
-    options.stats = true;
     Promise.all([
       totalLinksStats(path),
       uniqueLinksStats(path),
