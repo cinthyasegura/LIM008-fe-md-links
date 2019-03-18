@@ -1,7 +1,6 @@
 const fetch = require('node-fetch');
 import { lookUpForLinks } from './links.js';
 
-
 export const validateLink = route => {
   const linksObj = lookUpForLinks(route);
   const newArr = linksObj.map(links => new Promise((resolve) => {

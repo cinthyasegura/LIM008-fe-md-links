@@ -10,13 +10,13 @@ export const walkInDirectorySync = route => {
     const contentArr = fs.readdirSync(route);
     contentArr.forEach(files => {
       const routeAbsFile = path.join(route, files);
-      arrOfFiles = arrOfFiles.concat(walkInDirectorySync((routeAbsFile)));
+      arrOfFiles = [...arrOfFiles, ...(walkInDirectorySync(routeAbsFile))];
     }); 
   };
   return arrOfFiles;
 };
 
 export const filterMdFiles = contentArr => {
-  return contentArr.filter(file => path.extname(file) === '.md');
+  return contentArr.filter(file => path.extname(file).toLowerCase() === '.md');
 };
 

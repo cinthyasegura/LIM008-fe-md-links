@@ -40,7 +40,8 @@
     "regenerator-runtime": "^0.13.1"
   },
   "dependencies": {
-    "node-fetch": "^2.3.0",
-    "md-links": "git+https://github.com/cinthyasegura/LIM008-fe-md-links.git"
+    "fetch-mock": "^7.3.1",
+    "md-links": "git+https://github.com/cinthyasegura/LIM008-fe-md-links.git",
+    "node-fetch": "^2.3.0"
   }
 }

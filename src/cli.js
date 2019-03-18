@@ -35,7 +35,7 @@ if (args.length === 2) {
   if (args[1] === '--validate' || args[1] === '--v') {
     options.validate = true; 
     mdLinks(path, options)
-      .then(resp => resp.forEach(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Status: ${values.status}\n StatusText: ${values.message}\n Text: ${values.text}\n`)))
+      .then(resp => resp.map(values => console.log(` Path: ${values.file}\n Link: ${values.href}\n Status: ${values.status}\n StatusText: ${values.message}\n Text: ${values.text}\n`)))
       .catch(err => err);
   } else if (args[1] === '--stats' || args[1] === '--s') {
     Promise.all([
