@@ -42,11 +42,14 @@ describe('validateLink', () => {
     fetchMock
       .mock('https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback', 200)
       .mock('https://github.com/octokit/rest.js/issu', 404, { overwriteRoutes: false})
-      .mock('SOY-URL-NO-VALIDO', 'No contiene una URL válida', { overwriteRoutes: false})
+      .mock('SOY-URL-NO-VALIDO', new Promise((resolve, reject) => reject()), { overwriteRoutes: false});
     validateLink(path.join(`${process.cwd()}`, '\\test\\testing\\folder-2')).then(response => {
       expect(response).toEqual(result);
       done();
-    }).catch(() => done());
+    }).catch((error) => {
+      console.log(error)
+      done()
+    });
   }); 
 });
 
